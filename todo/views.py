@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import CreateForm
 
 
@@ -7,6 +7,12 @@ def index(request):
 
 
 def add(request):
+    form = CreateForm(request.POST or None)
+
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('todo:index')
+
     context = {
         'form': CreateForm
     }
