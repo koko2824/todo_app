@@ -1,5 +1,25 @@
 {% extends 'todo/base.html' %}
 
 {% block content %}
-<h1>Hello world</h1>
+
+<h2>TODOリスト</h2>
+    <table class="col l12 striped responsive-table">
+        <tr>
+            <th>タイトル</th>
+            <th>作成日</th>
+            <th>チェック</th>
+        </tr>
+        {% for todo in todo_list %}
+        <tr>
+            <td>{{ todo.title }}</td>
+            <td>{{ todo.date }}</td>
+            {% if todo.check %}
+            <td><i class="material-icons">check</i></td>
+            {% else %}
+            <td><i class="material-icons">check_box_outline_blank</i></td>
+            {% endif %}      
+        </tr>
+        {% endfor %}
+    </table>
+
 {% endblock  %}

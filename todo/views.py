@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect
 from .forms import CreateForm
+from .models import Todo
 
 
 def index(request):
-    return render(request, 'todo/index.html')
+    context = {
+        'todo_list': Todo.objects.all()
+    }
+    return render(request, 'todo/index.html', context)
 
 
 def add(request):
