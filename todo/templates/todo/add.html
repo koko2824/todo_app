@@ -11,6 +11,8 @@
 <form action="" method="POST">
     {% csrf_token %}
     {{ form|materializecss }}
+    <br>
+    <button type="submit" class="waves-effect waves light btn">送信</button>
 </form>
 {% endblock content %}
 
