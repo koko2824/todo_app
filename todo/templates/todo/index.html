@@ -1,25 +1,32 @@
 {% extends 'todo/base.html' %}
 
+{% block css %}
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!-- Compiled and minified icon -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+{% endblock css %}
+
 {% block content %}
-
 <h2>TODOリスト</h2>
-    <table class="col l12 striped responsive-table">
-        <tr>
-            <th>タイトル</th>
-            <th>作成日</th>
-            <th>チェック</th>
-        </tr>
-        {% for todo in todo_list %}
-        <tr>
-            <td>{{ todo.title }}</td>
-            <td>{{ todo.date }}</td>
-            {% if todo.check %}
-            <td><i class="material-icons">check</i></td>
-            {% else %}
-            <td><i class="material-icons">check_box_outline_blank</i></td>
-            {% endif %}      
-        </tr>
-        {% endfor %}
-    </table>
-
-{% endblock  %}
+<table class="col l12 responsive-table">
+    <tr>
+        <th>タイトル</th>
+        <th>作成日</th>
+        <th>チェック</th>
+    </tr>
+    {% for todo in todo_list %}
+    <tr>
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.date }}</td>
+        {% if todo.check %}
+        <td><i class="material-icons">check</i></td>
+        {% else %}
+        <td><i class="material-icons">check_box_outline_blank</i></td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

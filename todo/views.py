@@ -1,23 +1,13 @@
-from django.shortcuts import render, redirect
-from .forms import CreateForm
+from django.views.generic import FormView, ListView
 from .models import Todo
+from .forms import CreateForm
 
 
-def index(request):
-    context = {
-        'todo_list': Todo.objects.all()
-    }
-    return render(request, 'todo/index.html', context)
+class index(ListView):
+    model = Todo
+    template_name = 'todo/index.html'
 
 
-def add(request):
-    form = CreateForm(request.POST or None)
-
-    if request.method == 'POST' and form.is_valid():
-        form.save()
-        return redirect('todo:index')
-
-    context = {
-        'form': CreateForm
-    }
-    return render(request, 'todo/add.html', context)
+class add(FormView):
+    form_class = CreateForm
+    template_name = 'todo/add.html'

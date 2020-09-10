@@ -1,9 +1,9 @@
 from django.urls import path
-from . import views
+from .views import index, add
 
 app_name = 'todo'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('add/', views.add, name='add'),
+    path('', index.as_view(), name='index'),
+    path('add/', add.as_view(), name='add'),
 ]
