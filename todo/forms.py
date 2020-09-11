@@ -5,4 +5,4 @@ from .models import Todo
 class CreateForm(forms.ModelForm):
     class Meta:
         model = Todo
-        fields = '__all__'
+        fields = ('title', 'text', 'check')
