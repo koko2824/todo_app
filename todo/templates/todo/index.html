@@ -16,6 +16,8 @@
         <th>タイトル</th>
         <th>作成日</th>
         <th>チェック</th>
+        <th>#</th>
+        <th>#</th>
     </tr>
     {% for todo in todo_list %}
     <tr>
@@ -26,6 +28,8 @@
         {% else %}
         <td><i class="material-icons">check_box_outline_blank</i></td>
         {% endif %}
+        <td><a href="{% url 'todo:update' todo.pk %}">更新</a></td>
+        <td><a href="{% url 'todo:delete' todo.pk %}">削除</a></td>
     </tr>
     {% endfor %}
 </table>
