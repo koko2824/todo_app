@@ -1,0 +1,27 @@
+{% extends 'todo/base.html' %}
+{% load materializecss %}
+
+{% block content %}
+<br>
+<h5>以下の内容を削除します</h5>
+<br>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>タイトル</td>
+            <td>{{ todo.title }}</td>
+        </tr>
+        <tr>
+            <td>本文</td>
+            <td>{{ todo.text }}</td>
+        </tr>
+        <tr>
+            <td>作成日</td>
+            <td>{{ todo.date }}</td>
+        </tr>
+    </table>
+    <br>
+        <button type="submit" class="waves-effect waves-light btn">削除する</button>
+</form>
+{% endblock content %}

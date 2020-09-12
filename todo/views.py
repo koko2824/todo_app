@@ -18,13 +18,16 @@ class add(generic.CreateView):
 
 class update(generic.UpdateView):
     model = Todo
-    template_name = 'todo/update.html'
     form_class = CreateForm
+    template_name = 'todo/update.html'
     success_url = reverse_lazy('todo:index')
 
 
 class delete(generic.DeleteView):
-    pass
+    model = Todo
+    form_class = CreateForm
+    template_name = 'todo/delete.html'
+    success_url = reverse_lazy('todo:index')
 
 
 class detail(generic.DetailView):
