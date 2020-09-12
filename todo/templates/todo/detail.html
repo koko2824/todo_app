@@ -1,0 +1,21 @@
+{% extends 'todo/base.html' %}
+{% load materializecss %}
+
+{% block content %}
+<br>
+<br>
+    <table>
+        <tr>
+            <td>タイトル</td>
+            <td>{{ todo.title }}</td>
+        </tr>
+        <tr>
+            <td>本文</td>
+            <td>{{ todo.text }}</td>
+        </tr>
+        <tr>
+            <td>作成日</td>
+            <td>{{ todo.date }}</td>
+        </tr>
+    </table>
+{% endblock content %}

@@ -31,4 +31,5 @@ class delete(generic.DeleteView):
 
 
 class detail(generic.DetailView):
-    pass
+    model = Todo
+    template_name = 'todo/detail.html'

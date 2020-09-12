@@ -21,7 +21,7 @@
     </tr>
     {% for todo in todo_list %}
     <tr>
-        <td>{{ todo.title }}</td>
+        <td><a href="{% url 'todo:detail' todo.pk %}">{{ todo.title }}</a></td>
         <td>{{ todo.date }}</td>
         {% if todo.check %}
         <td><i class="material-icons">check</i></td>
