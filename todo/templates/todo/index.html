@@ -1,14 +1,5 @@
 {% extends 'todo/base.html' %}
 
-{% block css %}
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<!-- Compiled and minified icon -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-{% endblock css %}
-
 {% block content %}
 <h2>TODOリスト</h2>
 <table class="col l12 responsive-table">
@@ -33,4 +24,14 @@
     </tr>
     {% endfor %}
 </table>
+<!-- 
+{% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">前へ</a>
+{% endif %}
+
+{% if page_obj.has_next %}
+    <a href="?page={{ page_obj.previous_page_number }}">次へ</a>
+{% endif %} -->
+    
+    
 {% endblock content %}
