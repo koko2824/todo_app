@@ -5,7 +5,7 @@ from .forms import CreateForm
 
 
 class index(generic.ListView):
-    paginate_by = 15
+    paginate_by = 5
     model = Todo
     template_name = 'todo/index.html'
 
