@@ -1,9 +1,28 @@
-{% if page_obj.has_previous %}
-    <a href="?page={{ page_obj.previous_page_number }}">前へ</a>
-{% endif %}
+<ul class="pagination">
 
-{% if page_obj.has_next %}
-    <a href="?page={{ page_obj.next_page_number }}">次へ</a>
-{% endif %}
-    
-    
+    <!-- first page -->
+    {% if page_obj.number == 1 %}
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    {% else %}
+    <li><a href="?page=1"><i class="material-icons">chevron_left</i></a></li>
+    {% endif %}
+
+
+    <!-- page list -->
+    {% for num in ''|center:page_obj.paginator.num_pages %}
+        {% if page_obj.number == forloop.counter %}
+            <li class="active"><a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+        {% else %}
+            <li class="waves-effect"><a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+        {% endif %}
+    {% endfor %}
+
+
+    <!-- last page -->
+    {% if page_obj.number == page_obj.paginator.num_pages %}
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    {% else %}
+        <li><a href="?page={{ page_obj.paginator.num_pages }}"><i class="material-icons">chevron_right</i></a></li>
+    {% endif %}
+
+</ul>
