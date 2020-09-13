@@ -1,4 +1,4 @@
-<ul class="pagination">
+<ul class="pagination #81c784">
 
     <!-- first page -->
     {% if page_obj.number == 1 %}
@@ -11,7 +11,7 @@
     <!-- page list -->
     {% for num in ''|center:page_obj.paginator.num_pages %}
         {% if page_obj.number == forloop.counter %}
-            <li class="active"><a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+            <li class="active #81c784 green lighten-2"><a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
         {% else %}
             <li class="waves-effect"><a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
         {% endif %}
